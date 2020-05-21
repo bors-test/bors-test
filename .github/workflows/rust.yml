@@ -13,6 +13,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Version Info
+      run: rustc --version; cargo --version; rustup --version
+    - name: Install Dependencies
+      run: |
+        rustup component add clippy rustfmt
     - name: Build
       run: cargo build --verbose
     - name: Run tests
